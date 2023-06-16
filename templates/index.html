@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Distance Calculator</title>
+</head>
+<body>
+    <h1>Distance Calculator</h1>
+    <form action="/calculate" method="post">
+        <label for="address1">Address 1:</label>
+        <input type="text" id="address1" name="address1" value="{{ address1 }}"><br>
+        <label for="address2">Address 2:</label>
+        <input type="text" id="address2" name="address2" value="{{ address2 }}"><br>
+        <label for="lat1">Latitude 1:</label>
+        <input type="number" id="lat1" name="lat1" step="any" value="{{ lat1 }}"><br>
+        <label for="lon1">Longitude 1:</label>
+        <input type="number" id="lon1" name="lon1" step="any" value="{{ lon1 }}"><br>
+        <label for="lat2">Latitude 2:</label>
+        <input type="number" id="lat2" name="lat2" step="any" value="{{ lat2 }}"><br>
+        <label for="lon2">Longitude 2:</label>
+        <input type="number" id="lon2" name="lon2" step="any" value="{{ lon2 }}"><br>
+        <button type="submit">Calculate Distance</button>
+    </form>
+
+    {% if error_messages %}
+    <h2>Error Messages:</h2>
+    <ul>
+        {% for error in error_messages %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if distance %}
+    <h2>Distance: {{ distance }} kilometers</h2>
+    {% endif %}
+</body>
+</html>
